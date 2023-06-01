@@ -1,0 +1,21 @@
+datatable (
+    rawdata:string
+) 
+[
+    'latitude:37.52812,longitude:126.96888,destinationhost:HONEYPOT,username:ADMINISTRATOR,sourcehost:115.92.155.19,state:Seoul,country:South Korea,label:South Korea - 115.92.155.19,timestamp:2023-05-19 03:05:48',
+    'latitude:47.91542,longitude:-120.60306,destinationhost:HONEYPOT,username:fakeuser,sourcehost:24.16.97.222,state:Washington,country:United States,label:United States - 24.16.97.222,timestamp:2023-05-18 03:28:29',
+    'latitude:-22.90906,longitude:-47.06455,destinationhost:HONEYPOT,username:lnwbaq,sourcehost:20.195.228.49,state:Sao Paulo,country:Brazil,label:Brazil - 20.195.228.49,timestamp:2023-05-18 05:46:20',
+    'latitude:52.37022,longitude:4.89517,destinationhost:HONEYPOT,username:CSNYDER,sourcehost:89.248.165.74,state:North Holland,country:Netherlands,label:Netherlands - 89.248.165.74,timestamp:2023-05-18 06:12:56',
+    'latitude:40.71455,longitude:-74.00714,destinationhost:HONEYPOT,username:ADMINISTRATOR,sourcehost:72.45.247.218,state:New York,country:United States,label:United States - 72.45.247.218,timestamp:2023-05-18 10:44:07',
+    'latitude:33.99762,longitude:-6.84737,destinationhost:HONEYPOT,username:AZUREUSER,sourcehost:102.50.242.216,state:Rabat-Salé-Kénitra,country:Morocco,label:Morocco - 102.50.242.216,timestamp:2023-05-18 11:03:13',
+    'latitude:-5.32558,longitude:100.28595,destinationhost:HONEYPOT,username:Test,sourcehost:42.1.62.34,state:Penang,country:Malaysia,label:Malaysia - 42.1.62.34,timestamp:2023-05-18 11:04:45',
+    'latitude:41.05722,longitude:28.84926,destinationhost:HONEYPOT,username:AZUREUSER,sourcehost:176.235.196.111,state:Istanbul,country:Turkey,label:Turkey - 176.235.196.111,timestamp:2023-05-18 11:50:47',
+    'latitude:55.87925,longitude:37.54691,destinationhost:HONEYPOT,username:Test,sourcehost:87.251.67.98,state:null,country:Russia,label:Russia - 87.251.67.98,timestamp:2023-05-18 12:13:45',
+    'latitude:52.37018,longitude:4.87324,destinationhost:HONEYPOT,username:AZUREUSER,sourcehost:20.86.161.127,state:North Holland,country:Netherlands,label:Netherlands - 20.86.161.127,timestamp:2023-05-18 12:33:46',
+    'latitude:17.49163,longitude:-88.18704,destinationhost:HONEYPOT,username:Test,sourcehost:45.227.254.8,state:null,country:Belize,label:Belize - 45.227.254.8,timestamp:2023-05-18 13:13:25',
+    'latitude:-55.88802,longitude:37.65136,destinationhost:HONEYPOT,username:Test,sourcehost:94.232.47.130,state:Central Federal District,country:Russia,label:Russia - 94.232.47.130,timestamp:2023-05-18 14:25:33',
+    'latitude:33.91396,longitude:-84.34648,destinationhost:HONEYPOT,username:FAKE,sourcehost:68.231.250.121,state:Georgia,country:United States,label:United States - 68.231.250.121,timestamp:2023-05-19 00:15:18',
+    'latitude:33.91396,longitude:-84.34648,destinationhost:HONEYPOT,username:LOGKGO,sourcehost:68.231.250.121,state:Georgia,country:United States,label:United States - 68.231.250.121,timestamp:2023-05-19 02:10:57'
+]
+| parse rawdata with * 'latitude:' latitude_CF ',longitude:' longitude_CF ',destinationhost:' destinationhost_CF ',username:' username_CF ',sourcehost:' sourcehost_CF ',state:' state_CF ',country:' country_CF ',label:' label_CF ',timestamp:' timestamp_CF
+| project sourcehost_CF, latitude_CF, longitude_CF, country_CF, destinationhost_CF, username_CF, label_CF, timestamp_CF
